@@ -1,5 +1,5 @@
 const Product =require('../models/Product')
-const { verifiTokenAndAuthentication, verifiTokenAndAdmin } = require('./verifitoken');
+const { verifiTokenAndAuthentication, verifiTokenAndAdmin } = require('./verifiToken');
 const router = require('express').Router();
 
 //CREATE PRODUCT
