@@ -1,9 +1,9 @@
 const Order = require('../models/Order');
-const { verifiTokenAndAuthentication, verifiTokenAndAdmin } = require('./verifiToken');
+const { verifiTokenAndAuthentication, verifiTokenAndAdmin, verifiToken } = require('./verifiToken');
 
 const router = require('express').Router();
 //CREATE Order
-router.post('/', verifiTokenAndAuthentication, async (req, res) => {
+router.post('/', verifiToken, async (req, res) => {
   const newOrder = new Order(req.body);
   try {
     const savedOrder = await newOrder.save();
@@ -68,7 +68,6 @@ router.get('/income', verifiTokenAndAdmin, async (req, res) => {
           month: { $month: "$createdAt" },
           sales: "$amount"
         },
-        
       },
       {
         $group:{

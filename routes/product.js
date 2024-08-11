@@ -14,7 +14,6 @@ router.post('/',verifiTokenAndAdmin,async(req,res)=>{
        res.status(500).json(err)        
      }          
 })
-
 //UPDATE USER
 router.put('/:id', verifiTokenAndAdmin, async (req, res) => {
    try {
